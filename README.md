@@ -8,13 +8,13 @@ Tugas Workshop Deep Learning — Teknik Telekomunikasi ITERA.
 
 | Peran | Nama | NIM |
 |---|---|---|
-| Ketua | [Nama Lengkap] | [NIM] |
-| Anggota | [Nama Lengkap] | [NIM] |
-| Anggota | [Nama Lengkap] | [NIM] |
+| Ketua | [Alfita Eryani Nugroho] | [124400002] |
+| Anggota | [Octavia Sesilia Malau] | [124400038] |
+| Anggota | [Fitria Oktavianti] | [124400058] |
 
-- **Kelas:** [RA / RB]
-- **Lokasi kelompok:** [kode] — [nama lokasi] (digit terakhir NIM terkecil)
-- **Laporan:** [`laporan-latex/main.pdf` atau `laporan-typst/main.pdf`]
+- **Kelas:** [RB]
+- **Lokasi kelompok:** [2] — [Università Bocconi] (digit terakhir NIM terkecil)
+- **Laporan:** [`laporan-latex/main.pdf`]
 
 ## Cara Menjalankan
 
@@ -25,7 +25,7 @@ uv run jupyter lab
 
 Buka `tugas_ablasi.ipynb`, isi `LOKASI_KELOMPOK`, lalu jalankan semua sel. Semua run tercatat di `hasil/ablasi.csv`.
 
-Perangkat yang kami pakai: [contoh: laptop CPU Intel i5 / Google Colab T4], total waktu training: [x] menit.
+Perangkat yang kami pakai: [Jupyter Notebook Lab], total waktu training: [90] menit.
 
 ## Ringkasan Hasil
 
