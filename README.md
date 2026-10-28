@@ -29,7 +29,13 @@ Perangkat yang kami pakai: [Jupyter Notebook Lab], total waktu training: [182.3]
 
 ## Ringkasan Hasil
 
-Setelah menggabungkan nilai terbaik per model, test MAE terbaik adalah GRU 221,9, RNN 226,3, LSTM 246,6, dan ANN 273,9 (acuan: 237,2; 229,6; 273,6; 309,9), sehingga model rekuren tetap jauh lebih baik daripada ANN dan semuanya mengalahkan baseline naif terbaik (“minggu lalu”, 468). Perbaikan paling jelas terjadi pada ANN (turun 36 poin) dan LSTM (turun 27 poin), sedangkan RNN hanya membaik 3,3 poin, lebih kecil dari std antar seed sehingga praktis sama dengan acuan. Faktor yang paling konsisten membantu adalah batch kecil (16) dan fitur waktu, sementara dropout justru memperburuk sebagian besar model. Namun val MAE gabungan hanya membaik untuk ANN (248,9 → 218,4) dan sedikit memburuk untuk GRU, LSTM, dan RNN, menunjukkan bahwa nilai terbaik per faktor tidak selalu terbaik bila digabung.
+Setelah konfigurasi terbaik dari masing-masing faktor digabungkan, keempat model menunjukkan test MAE sebagai berikut: GRU 221,9, RNN 226,3, LSTM 246,6, dan ANN 273,9 (pada konfigurasi acuan: 237,2; 229,6; 273,6; dan 309,9). Hasil ini menegaskan bahwa arsitektur rekuren secara konsisten mengungguli ANN, dan seluruh model tetap jauh melampaui baseline naif terbaik, yaitu pola “minggu lalu” dengan MAE 468.
+
+Peningkatan paling besar terjadi pada ANN, yang turun sekitar 36 poin, disusul LSTM dengan penurunan sekitar 27 poin. Sebaliknya, RNN hanya membaik 3,3 poin. Selisih sekecil ini masih berada di bawah standar deviasi antar-seed, sehingga secara statistik RNN tidak dapat dianggap berbeda dari konfigurasi acuannya.
+
+Dari sisi faktor, ukuran batch kecil (16) dan penambahan fitur waktu merupakan dua hal yang paling konsisten memberi perbaikan di berbagai model. Dropout justru cenderung menurunkan kinerja pada sebagian besar model.
+
+Meski demikian, penggabungan faktor tidak serta-merta memperbaiki val MAE. Hanya ANN yang membaik (248,9 menjadi 218,4), sedangkan GRU, LSTM, dan RNN mengalami sedikit penurunan. Temuan ini menunjukkan bahwa kombinasi dari nilai terbaik tiap faktor belum tentu menghasilkan konfigurasi terbaik secara keseluruhan, karena faktor-faktor tersebut dapat saling berinteraksi.
 
 ## Struktur
 
