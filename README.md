@@ -8,28 +8,38 @@ Tugas Workshop Deep Learning — Teknik Telekomunikasi ITERA.
 
 | Peran | Nama | NIM |
 |---|---|---|
-| Ketua | [Alfita Eryani Nugroho] | [124400002] |
-| Anggota | [Octavia Sesilia Malau] | [124400038] |
-| Anggota | [Fitria Oktavianti] | [124400058] |
+| Ketua | Alfita Eryani Nugroho | 124400002 |
+| Anggota | Octavia Sesilia Malau | 124400038 |
+| Anggota | Fitria Oktavianti | 124400058 |
 
-- **Kelas:** [RB]
-- **Lokasi kelompok:** [2] — [Università Bocconi]
-- **Laporan:** [`laporan-latex/main.pdf`]
+- **Kelas:** RB
+- **Lokasi kelompok:** 2 — Università Bocconi
+- **Laporan:** `laporan-latex/main.pdf`
 
 ## Cara Menjalankan
 
+**Prasyarat:** Python 3.12+, [Git](https://git-scm.com/), dan [uv](https://docs.astral.sh/uv/).
+
 ```bash
+git clone https://github.com/mctosima/dl-workshop.git
+cd Tugas-AI-RB-Fita
 uv sync
 uv run jupyter lab
 ```
 
-Buka `tugas_ablasi.ipynb`, isi `LOKASI_KELOMPOK`, lalu jalankan semua sel. Semua run tercatat di `hasil/ablasi.csv`.
+Buka `tugas_ablasi.ipynb`, lalu:
 
-Perangkat yang kami pakai: [Jupyter Notebook Lab], total waktu training: [182.3] menit.
+1. Pastikan `LOKASI_KELOMPOK = 2` (Universita Bocconi) di sel pertama.
+2. Pastikan `CEPAT = False` untuk hasil akhir (`CEPAT = True` hanya untuk uji coba kode).
+3. Jalankan semua sel dari atas ke bawah (**Kernel → Restart Kernel and Run All Cells**).
+
+> **Windows:** jika `uv` tidak dikenali, jalankan dengan awalan `python -m uv` (contoh: `python -m uv sync`).
+
+Perangkat yang kami pakai: Laptop CPU Intel i3, Jupyter Notebook Lab, total waktu training: 182.3 menit.
 
 ## Ringkasan Hasil
 
-Setelah menggabungkan nilai terbaik per model, test MAE terbaik adalah GRU 221,9, RNN 226,3, LSTM 246,6, dan ANN 273,9 (acuan: 237,2; 229,6; 273,6; 309,9), sehingga model rekuren tetap jauh lebih baik daripada ANN dan semuanya mengalahkan baseline naif terbaik (“minggu lalu”, 468). Perbaikan paling jelas terjadi pada ANN (turun 36 poin) dan LSTM (turun 27 poin), sedangkan RNN hanya membaik 3,3 poin, lebih kecil dari std antar seed sehingga praktis sama dengan acuan. Faktor yang paling konsisten membantu adalah batch kecil (16) dan fitur waktu, sementara dropout justru memperburuk sebagian besar model. Namun val MAE gabungan hanya membaik untuk ANN (248,9 → 218,4) dan sedikit memburuk untuk GRU, LSTM, dan RNN, menunjukkan bahwa nilai terbaik per faktor tidak selalu terbaik bila digabung.
+Setelah konfigurasi terbaik tiap faktor digabung, test MAE menjadi GRU 221,9, RNN 226,3, LSTM 246,6, dan ANN 273,9 (acuan: 237,2; 229,6; 273,6; 309,9), sehingga model rekuren tetap mengungguli ANN dan semuanya jauh di bawah baseline naif terbaik “minggu lalu” (468). Perbaikan terbesar terjadi pada ANN (turun sekitar 36 poin) dan LSTM (sekitar 27 poin), sedangkan RNN hanya membaik 3,3 poin yang masih di bawah simpangan baku antar seed, sehingga tidak berbeda secara statistik dari acuannya. Batch size kecil (16) menjadi faktor yang paling konsisten membantu, sementara dropout cenderung menurunkan kinerja pada sebagian besar model. Namun, val MAE gabungan hanya membaik pada ANN (248,9 menjadi 218,4) dan sedikit memburuk pada GRU, LSTM, dan RNN, yang menunjukkan bahwa nilai terbaik tiap faktor belum tentu terbaik saat digabung karena faktor-faktor tersebut saling berinteraksi.
 
 ## Struktur
 
@@ -37,7 +47,7 @@ Setelah menggabungkan nilai terbaik per model, test MAE terbaik adalah GRU 221,9
 tugas_ablasi.ipynb      notebook eksperimen (di-commit beserta output)
 data/                   data trafik per jam (Duomo + 10 lokasi tugas)
 hasil/                  CSV seluruh run, tabel, dan grafik
-laporan-latex/ atau laporan-typst/   sumber laporan + PDF
+laporan-latex/          sumber laporan + PDF
 ```
 
 ## Data
