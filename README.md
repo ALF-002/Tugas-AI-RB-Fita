@@ -39,6 +39,7 @@ Perangkat yang kami pakai: Laptop CPU Intel i3, Jupyter Notebook Lab, total wakt
 
 ## Ringkasan Hasil
 
+Setelah konfigurasi terbaik tiap faktor digabung, test MAE menjadi GRU 221,9, RNN 226,3, LSTM 246,6, dan ANN 273,9 (acuan: 237,2; 229,6; 273,6; 309,9), sehingga model rekuren tetap mengungguli ANN dan semuanya jauh di bawah baseline naif terbaik “minggu lalu” (468). Perbaikan terbesar terjadi pada ANN (turun sekitar 36 poin) dan LSTM (sekitar 27 poin), sedangkan RNN hanya membaik 3,3 poin yang masih di bawah simpangan baku antar seed, sehingga tidak berbeda secara statistik dari acuannya. Batch size kecil (16) menjadi faktor yang paling konsisten membantu, sementara dropout cenderung menurunkan kinerja pada sebagian besar model. Namun, val MAE gabungan hanya membaik pada ANN (248,9 menjadi 218,4) dan sedikit memburuk pada GRU, LSTM, dan RNN, yang menunjukkan bahwa nilai terbaik tiap faktor belum tentu terbaik saat digabung karena faktor-faktor tersebut saling berinteraksi.
 
 ## Struktur
 
