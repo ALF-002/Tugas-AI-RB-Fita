@@ -39,17 +39,6 @@ Perangkat yang kami pakai: Laptop CPU Intel i3, Jupyter Notebook Lab, total wakt
 
 ## Ringkasan Hasil
 
-<<<<<<< HEAD
-Setelah konfigurasi terbaik tiap faktor digabung, test MAE menjadi GRU 221,9, RNN 226,3, LSTM 246,6, dan ANN 273,9 (acuan: 237,2; 229,6; 273,6; 309,9), sehingga model rekuren tetap mengungguli ANN dan semuanya jauh di bawah baseline naif terbaik “minggu lalu” (468). Perbaikan terbesar terjadi pada ANN (turun sekitar 36 poin) dan LSTM (sekitar 27 poin), sedangkan RNN hanya membaik 3,3 poin yang masih di bawah simpangan baku antar seed, sehingga tidak berbeda secara statistik dari acuannya. Batch size kecil (16) menjadi faktor yang paling konsisten membantu, sementara dropout cenderung menurunkan kinerja pada sebagian besar model. Namun, val MAE gabungan hanya membaik pada ANN (248,9 menjadi 218,4) dan sedikit memburuk pada GRU, LSTM, dan RNN, yang menunjukkan bahwa nilai terbaik tiap faktor belum tentu terbaik saat digabung karena faktor-faktor tersebut saling berinteraksi.
-=======
-Setelah konfigurasi terbaik dari masing-masing faktor digabungkan, keempat model menunjukkan test MAE sebagai berikut: GRU 221,9, RNN 226,3, LSTM 246,6, dan ANN 273,9 (pada konfigurasi acuan: 237,2; 229,6; 273,6; dan 309,9). Hasil ini menegaskan bahwa arsitektur rekuren secara konsisten mengungguli ANN, dan seluruh model tetap jauh melampaui baseline naif terbaik, yaitu pola “minggu lalu” dengan MAE 468.
-
-Peningkatan paling besar terjadi pada ANN, yang turun sekitar 36 poin, disusul LSTM dengan penurunan sekitar 27 poin. Sebaliknya, RNN hanya membaik 3,3 poin. Selisih sekecil ini masih berada di bawah standar deviasi antar-seed, sehingga secara statistik RNN tidak dapat dianggap berbeda dari konfigurasi acuannya.
-
-Dari sisi faktor, ukuran batch kecil (16) dan penambahan fitur waktu merupakan dua hal yang paling konsisten memberi perbaikan di berbagai model. Dropout justru cenderung menurunkan kinerja pada sebagian besar model.
-
-Meski demikian, penggabungan faktor tidak serta-merta memperbaiki val MAE. Hanya ANN yang membaik (248,9 menjadi 218,4), sedangkan GRU, LSTM, dan RNN mengalami sedikit penurunan. Temuan ini menunjukkan bahwa kombinasi dari nilai terbaik tiap faktor belum tentu menghasilkan konfigurasi terbaik secara keseluruhan, karena faktor-faktor tersebut dapat saling berinteraksi.
->>>>>>> 70a5eb9b0942bc627c05c96ba9e12fd6414b7c48
 
 ## Struktur
 
